@@ -18,3 +18,21 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+./config.cmd --url https://github.com/pdevs69/onibus --token BTFCN6O3UL733O5B4NDWJN3IIJGI2
+   - nome: Cache
+  usos: ações/cache@v4.2.3
+  com:
+    # Uma lista de arquivos, diretórios e padrões curinga para armazenar em cache e restaurar
+    caminho:
+    # Uma chave explícita para restaurar e salvar o cache
+    chave:
+    # Uma string ordenada de várias linhas listando as chaves com prefixo correspondente, que são usadas para restaurar o cache obsoleto caso nenhuma ocorrência de cache tenha ocorrido para a chave. Observe que `cache-hit` retorna falso neste caso.
+    restore-keys: # opcional
+    # O tamanho do bloco usado para dividir arquivos grandes durante o upload, em bytes
+    upload-chunk-size: # opcional
+    # Um booleano opcional, quando habilitado, permite que os executores do Windows salvem ou restaurem caches que podem ser restaurados ou salvos respectivamente em outras plataformas
+    enableCrossOsArchive: # opcional, o padrão é falso
+    # Falha no fluxo de trabalho se a entrada do cache não for encontrada
+    fail-on-cache-miss: # opcional, o padrão é falso
+    # Verifique se existe uma entrada de cache para as entradas fornecidas (chave, chaves de restauração) sem baixar o cache
+    somente consulta: # opcional, o padrão é falso
